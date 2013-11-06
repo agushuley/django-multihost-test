@@ -1,0 +1,9 @@
+{% load multihost %}
+
+<pre>
+{&perc; url 'templates' %} - {%  url 'templates' %}
+{&perc; url 'news_item' 'ii' '10' %} - {%  url 'news_item' 'ii' '10' %}
+
+{&perc; mh_reverse 'news_item' site=mobile 'ii' '10' %} - {%  mh_reverse 'news_item' site=mobile 'ii' '10' %}
+{&perc; mh_reverse 'news_item' site=mobile 'ii' '10' %} - {%  mh_reverse 'news_item' site=default 'ii' '10' %}
+</pre>
