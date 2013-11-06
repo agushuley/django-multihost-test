@@ -4,3 +4,4 @@ multihost-test.iml
 test.db.sqlite3
 
 *.pyc
+db.sqlite3
