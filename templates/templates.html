@@ -1,9 +1,21 @@
 {% load multihost %}
 
 <pre>
-{&perc; url 'templates' %} - {%  url 'templates' %}
-{&perc; url 'news_item' 'ii' '10' %} - {%  url 'news_item' 'ii' '10' %}
+{&#123; default_site }} - {{ default_site }}
+{&#123; current_site }} - {{ current_site }}
 
-{&perc; mh_reverse 'news_item' site=mobile 'ii' '10' %} - {%  mh_reverse 'news_item' site=mobile 'ii' '10' %}
-{&perc; mh_reverse 'news_item' site=mobile 'ii' '10' %} - {%  mh_reverse 'news_item' site=default 'ii' '10' %}
+{&#37; url 'templates' %} - {%  url 'templates' %}
+{&#37; url 'news_item' 'ii' '10' %} - {%  url 'news_item' 'ii' '10' %}
+# resolve urls for default site
+{&#37; mh_reverse 'news_item' site='default' 'ii' '10' %} - {%  mh_reverse 'news_item' site='default' 'ii' '10' %}
+{&#37; mh_reverse 'templates' site='default' %} - {%  mh_reverse 'templates' site='default' %}
+# resolve urls for mobile site
+{&#37; mh_reverse 'news_item' site='mobile' 'ii' '10' %} -  {%  mh_reverse 'news_item' site='mobile' 'ii' '10' %}
+{&#37; mh_reverse 'templates' site='mobile'  %} - {%  mh_reverse 'templates' site='mobile' %}
+# Same behavior as {&#37; url %}
+{&#37; mh_reverse 'news_item' site='' 'ii' '10' %} - {%  mh_reverse 'news_item' site='' 'ii' '10' %}
+{&#37; mh_reverse 'templates' site='' %} - {%  mh_reverse 'templates' site='' %}
+# Same behavior as {&#37; url %} with a full domain name
+{&#37; mh_reverse 'news_item' site='' is_external=True 'ii' '10' %} - {%  mh_reverse 'news_item' site='' is_external=True 'ii' '10' %}
+{&#37; mh_reverse 'templates' site='' is_external=True %} - {%  mh_reverse 'templates' site='' is_external=True %}
 </pre>
