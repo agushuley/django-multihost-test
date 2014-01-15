@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'django.contrib.sites',
-    'gushuley.multihost',
+    'gu_multihost',
+    'mh.mobile',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,7 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'gushuley.multihost.mh_utils.MultiHostMiddleware',
+    'gu_multihost.middleware.MultiHostMiddleware',
 )
 
 ROOT_URLCONF = 'mh.urls'
@@ -92,8 +93,8 @@ TEMPLATE_DIRS = [
 ]
 
 #multihost
-MULTIHOST_DATABASE_DRIVEN_URLS = False # means that list or url modules are stored in database and managed there
+MULTIHOST_DATABASE_DRIVEN_URLS = True # means that list or url modules are stored in database and managed there
 
 #for MULTIHOST_DATABASE_DRIVEN_URLS = False make a list possilbe selections for sites urls
-from gushuley.multihost import MULTIHOST_DEFAULT_URLS
+from gu_multihost import MULTIHOST_DEFAULT_URLS
 MULTIHOST_AVAILABLE_URLS = MULTIHOST_DEFAULT_URLS + [ROOT_URLCONF, 'mh.mobile.urls']
